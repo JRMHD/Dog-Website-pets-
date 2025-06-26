@@ -43,6 +43,10 @@ Route::get('/cart', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 })->name('checkout');
+  
+Route::get('/blogs', function () {
+    return view('blog');
+})->name('blog');
 
 // Profile routes (auth protected)
 Route::middleware('auth')->group(function () {

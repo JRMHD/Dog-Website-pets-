@@ -1,62 +1,4 @@
 <section class="stats_news_combo_section">
-    <!-- STATISTICS SECTION -->
-    <div class="statistics_section">
-        <div class="container">
-            <div class="row" data-aos="fade-up">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <div class="statistics_box box1">
-                        <figure>
-                            <img src="assets/images/statistics_image1.png" alt="" class="img-fluid hover-effect">
-                        </figure>
-                        <div class="statistics_span_wrapper">
-                            <span class="counter">85</span>
-                            <span class="plus">+</span>
-                        </div>
-                        <p class="text-size-18 mb-0">Awards Win</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <div class="statistics_box box2">
-                        <figure>
-                            <img src="assets/images/statistics_image2.png" alt=""
-                                class="img-fluid hover-effect">
-                        </figure>
-                        <div class="statistics_span_wrapper">
-                            <span class="counter">96</span>
-                            <span class="plus">k</span>
-                        </div>
-                        <p class="text-size-18 mb-0">Happy Clients</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <div class="statistics_box box3">
-                        <figure>
-                            <img src="assets/images/statistics_image3.png" alt=""
-                                class="img-fluid hover-effect">
-                        </figure>
-                        <div class="statistics_span_wrapper">
-                            <span class="counter">60</span>
-                            <span class="plus">+</span>
-                        </div>
-                        <p class="text-size-18 mb-0">Professional Vets</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <div class="statistics_box box4">
-                        <figure>
-                            <img src="assets/images/statistics_image4.png" alt=""
-                                class="img-fluid hover-effect">
-                        </figure>
-                        <div class="statistics_span_wrapper">
-                            <span class="counter">99</span>
-                            <span class="plus">.99%</span>
-                        </div>
-                        <p class="text-size-18 mb-0">Protection</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- NEWSLETTER SECTION -->
     <div class="newsletter_section">
         <div class="container">
@@ -69,8 +11,9 @@
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12 col-12 order-md-2 order-1">
                         <div class="newsletter_content">
-                            <h6>Newsletter</h6>
-                            <h2>Subscribe To Our Newsletter</h2>
+                            <h6>Stay Connected</h6>
+                            <h2>Subscribe for Dog Care Tips & Updates from Gibmarnel</h2>
+
                             <form method="POST">
                                 <div class="form-row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -106,20 +49,24 @@
             <div class="row">
                 <div class="col-lg-5 col-md-5 col-sm-6 col-12">
                     <div class="about_col">
-                        <a href="index.html">
-                            <figure>
-                                <img src="assets/images/footer_logo.png" alt="" class="img-fluid">
+                        <a href="/">
+                            <figure
+                                style="background-color: #f8f9fa; padding: 8px 12px; border-radius: 8px; display: inline-block;">
+                                <img src="assets/images/footer_logo.png" alt="" class="img-fluid"
+                                    style="height: 80px; width: auto;">
                             </figure>
                         </a>
-                        <p>Tristirue nulla aliquet enim tortor at auctor urna nunc massa enim nec dui nunc mattis
-                            enim ut tellus perspicia aute irure repreaen ...</p>
+
+                        <p>Gibmarnel offers expert dog and puppy services including training, breeding, and walking.
+                            Whether you have a new puppy or an adult dog, we provide personalized care to ensure their
+                            health, happiness, and good behavior.</p>
+
                         <div class="headphone_wrapper">
                             <figure class="mb-0">
                                 <img src="assets/images/footer_headphone.png" alt="" class="img-fluid">
                             </figure>
                             <div class="headphone_content">
-                                <a href="tel:+568925896325" class="text-decoration-none d-block">+5689 2589
-                                    6325</a>
+                                <a href="tel:+254 743 136920" class="text-decoration-none d-block">+254 743 136920</a>
                                 <span>Got Questions? Call us 24/7</span>
                             </div>
                         </div>
@@ -130,22 +77,16 @@
                         <h3>Working Hours</h3>
                         <ul class="list-unstyled">
                             <li>
-                                <p>Monday – Saturday</p>
+                                <p>Monday – Friday</p>
                             </li>
                             <li>
-                                <span>12:00 pm – 14:45 pm</span>
+                                <span>8:00 am – 6:00 pm</span>
                             </li>
                             <li>
-                                <p>Sunday – Thursday</p>
+                                <p>Saturday – Sunday</p>
                             </li>
                             <li>
-                                <span>17.30 pm – 00.00 am</span>
-                            </li>
-                            <li>
-                                <p>Friday – Saturday</p>
-                            </li>
-                            <li>
-                                <span>17.30 pm – 00.00 am</span>
+                                <span>8:00 am – 6:00 pm</span>
                             </li>
                         </ul>
                     </div>
@@ -158,7 +99,6 @@
                                 <i class="fa-solid fa-angle-right"></i>
                                 <a href="/">Home</a>
                             </li>
-
                             <li>
                                 <i class="fa-solid fa-angle-right"></i>
                                 <a href="{{ route('about') }}">About Us</a>
@@ -173,12 +113,12 @@
                             </li>
                             <li>
                                 <i class="fa-solid fa-angle-right"></i>
-                                <a href="{{ route('packages') }}">Packages</a>
+                                <a href="{{ route('blog') }}">Blogs</a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <i class="fa-solid fa-angle-right"></i>
                                 <a href="{{ route('gallery') }}">Gallery</a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </div>
@@ -191,14 +131,13 @@
                                 <p>Address:</p>
                             </li>
                             <li>
-                                <span>121 King Street Melbourne, 3000, Australia</span>
+                                <span>Kenyatta Road,Nairobi,Kenya</span>
                             </li>
                             <li>
                                 <p>Email:</p>
                             </li>
                             <li class="mail">
-                                <a href="mailto:info@pawshpetcare.com"
-                                    class="text-decoration-none">info@pawshpetcare.com</a>
+                                <a href="mailto:info@gibmarnel.com" class="text-decoration-none">info@gibmarnel.com</a>
                             </li>
                         </ul>
                         <ul class="list-unstyled">
@@ -218,7 +157,9 @@
     <div class="bottom-portion">
         <div class="col-12">
             <div class="copyright">
-                <p>Copyright © 2023 pawshpetcare All rights reserved.</p>
+                <p>Copyright © {{ date('Y') }} {{ config('app.name') }} All rights reserved. | Designed and
+                    Developed by <a href="https://jrmhd.tech/" target="_blank"
+                        style="color: white; text-decoration: none;">Jrmhd Technologies</a></p>
             </div>
         </div>
     </div>

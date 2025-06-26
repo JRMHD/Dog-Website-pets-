@@ -2,27 +2,21 @@
 <html lang="zxx">
 
 <head>
-    <title>Cart | Pawsh Pet Care</title>
-    <!-- /SEO Ultimate -->
+    <title>Your Cart - Review Your Selection | Gibmarnel Kenya</title>
+    <meta name="description"
+        content="Review your selected dogs, puppies and pet products in your Gibmarnel cart. Your perfect companions are just one step away. Contact +254 743 136920 for assistance.">
+    <meta name="keywords" content="Gibmarnel cart, dog purchase, puppy cart, pet products cart">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta charset="utf-8">
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/images/favicon/manifest.json">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="canonical" href="https://gibmarnel.com/cart">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="../ms-icon-144x144.html">
     <meta name="theme-color" content="#ffffff">
+
     <!-- Latest compiled and minified CSS -->
     <link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/js/bootstrap.min.js">
@@ -47,12 +41,12 @@
                     <div class="col-lg-2 col-md-12 col-sm-12 col-12 d-lg-block d-none"></div>
                     <div class="col-lg-8 col-md-12 col-sm-12 col-12 text-center">
                         <div class="banner-section-content">
-                            <h1 data-aos="fade-up">Cart</h1>
-                            <p data-aos="fade-right">Senectus sit aliquam mattis orci dignissim sed saritas arcu semper
-                                felis morbi vulrautate nerue mattis assa lectus.</p>
+                            <h1 data-aos="fade-up">Your Cart</h1>
+                            <p data-aos="fade-right">Review your selected dogs, puppies, and pet products before
+                                proceeding to checkout. Your perfect companions and their essentials are just one step
+                                away.</p>
                             <div class="btn_wrapper" data-aos="fade-up">
-                                <span>Home </span><span class="slash">/</span><span> Pages </span><span
-                                    class="slash">/</span><span class="sub_span"> Cart</span>
+                                <span>Home </span><span class="slash">/</span><span class="sub_span"> Cart</span>
                             </div>
                             <figure class="sub_banner_content_top_shape mb-0 position-absolute left_right_shape">
                                 <img src="assets/images/sub_banner_content_top_shape.png" alt=""

@@ -3,27 +3,21 @@
 
 
 <head>
-    <title>Contact | Pawsh Pet Care</title>
-    <!-- /SEO Ultimate -->
+    <title>Contact Us - Get in Touch with Gibmarnel | Kenya Dog Services</title>
+    <meta name="description"
+        content="Contact Gibmarnel for dog breeding, training, and pet services in Kenya. Call +254 743 136920 or email info@gibmarnel.com. Open 8AM-6PM daily. Get your perfect companion today!">
+    <meta name="keywords"
+        content="contact Gibmarnel, dog services Kenya, +254 743 136920, info@gibmarnel.com, dog breeding contact">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta charset="utf-8">
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/images/favicon/manifest.json">
+
+    <link rel="canonical" href="https://gibmarnel.com/contact">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="../ms-icon-144x144.html">
     <meta name="theme-color" content="#ffffff">
+
     <!-- Latest compiled and minified CSS -->
     <link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/js/bootstrap.min.js">
@@ -49,8 +43,9 @@
                     <div class="col-lg-8 col-md-12 col-sm-12 col-12 text-center">
                         <div class="banner-section-content">
                             <h1 data-aos="fade-up">Contact Us</h1>
-                            <p data-aos="fade-right">Senectus sit aliquam mattis orci dignissim sed saritas arcu semper
-                                felis morbi vulrautate nerue mattis assa lectus.</p>
+                            <p data-aos="fade-right">Ready to find your perfect companion or need our professional
+                                services? Get in touch with Gibmarnel today for dog sales, training programs, breeding
+                                services, or dog walking inquiries.</p>
                             <div class="btn_wrapper" data-aos="fade-up">
                                 <span>Home </span><span class="slash">/</span><span class="sub_span"> Contact</span>
                             </div>
@@ -87,8 +82,9 @@
                             <div class="contact_info_content">
                                 <h6>Our info</h6>
                                 <h2>Get in Touch</h2>
-                                <p class="text-size-18">Quis autem vel eum iure reprehenderit rui in ea voa ruam nihil
-                                    molestiae conseruatur.</p>
+                                <p class="text-size-18">We're here to help you find your perfect canine companion or
+                                    answer any questions about our breeding, training, and dog care services. Let's
+                                    start your journey with Gibmarnel today.</p>
                             </div>
                         </div>
                     </div>
@@ -103,7 +99,7 @@
                                 </div>
                                 <div class="contact_info_box_content_wrapper">
                                     <h3>Location:</h3>
-                                    <p class="text-size-16 mb-0">121 King Street Melbourne, 3000, Australia</p>
+                                    <p class="text-size-16 mb-0">Kenyatta Road,Nairobi,Kenya</p>
                                 </div>
                             </div>
                         </div>
@@ -117,10 +113,10 @@
                                 </div>
                                 <div class="contact_info_box_content_wrapper">
                                     <h3>Phone:</h3>
-                                    <p class="mb-0"><a href="tel:+012(345)67899" class="text-decoration-none">+012
-                                            (345) 678 99 </a></p>
-                                    <p class="mb-0"><a href="tel:+1234567847858"
-                                            class="text-decoration-none">+12345678 478 58</a></p>
+                                    <p class="mb-0"><a href="tel:+254 743 136920" class="text-decoration-none">+254
+                                            743 136920 </a></p>
+                                    <p class="mb-0"><a href="tel:+254 722 431346" class="text-decoration-none">+254
+                                            722 431346</a></p>
                                 </div>
                             </div>
                         </div>
@@ -134,10 +130,10 @@
                                 </div>
                                 <div class="contact_info_box_content_wrapper">
                                     <h3>Email Us:</h3>
-                                    <p class="mb-0"><a href="mailto:Info@pawshpetcare.com"
-                                            class="text-decoration-none">Info@pawshpetcare.com</a></p>
-                                    <p class="mb-0"><a href="mailto:pawshpetcare@gmail.com"
-                                            class="text-decoration-none">pawshpetcare@gmail.com</a></p>
+                                    <p class="mb-0"><a href="mailto:info@gibmarnel.com"
+                                            class="text-decoration-none">info@gibmarnel.com</a></p>
+                                    {{-- <p class="mb-0"><a href="mailto:info@gibmarnel.com"
+                                            class="text-decoration-none">info@gibmarnel.com</a></p> --}}
                                 </div>
                             </div>
                         </div>
@@ -147,8 +143,8 @@
                     <div class="contact_info_form_content">
                         <h6>Contact Us</h6>
                         <h2>Send us a Message</h2>
-                        <p class="text-size-18">Officiis debitis aut rerum necessitatibus saepe eveniet voluta ratione
-                            voluptatem serui nesciunt.</p>
+                        <p class="text-size-18">Have questions about our dogs, training programs, or breeding services?
+                            We'd love to hear from you! Fill out the form below and we'll get back to you promptly.</p>
                         <form id="contactpage" method="POST"
                             action="https://html.designingmedia.com/pawsh/contact-form.php">
                             <div class="row">
@@ -168,6 +164,12 @@
                                     <div class="form-group mb-0">
                                         <input type="email" name="emailaddress" id="emailaddrs"
                                             class="form-control" placeholder="Email:">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group mb-0">
+                                        <input type="text" name="subject" id="subject" class="form-control"
+                                            placeholder="Subject:">
                                     </div>
                                 </div>
                             </div>
@@ -196,7 +198,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d35661.6942074034!2d144.91637077397664!3d-37.811636671563036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2s!4v1659530976839!5m2!1sen!2s"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.1531702881734!2d36.927872974965226!3d-1.0462293989437041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f36f6be7bc3d7%3A0x788b85bd2a27f20a!2sKenyatta%20Road!5e0!3m2!1sen!2ske!4v1750946636051!5m2!1sen!2ske"
                     width="1920" height="615" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
