@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SubscriptionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,7 +45,7 @@ Route::get('/cart', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 })->name('checkout');
-  
+
 Route::get('/blogs', function () {
     return view('blog');
 })->name('blog');
@@ -57,3 +59,9 @@ Route::middleware('auth')->group(function () {
 
 // Auth routes
 require __DIR__ . '/auth.php';
+
+
+Route::post('/consultation/store', [ConsultationController::class, 'store'])->name('consultation.store');
+Route::get('/consultation/quiz-question', [ConsultationController::class, 'getQuizQuestion'])->name('consultation.quiz');
+Route::post('/contact/submit', [ContactController::class, 'store'])->name('contact.submit');
+Route::post('/subscribe', [SubscriptionController::class, 'store'])->name('subscribe');

@@ -145,8 +145,8 @@
                         <h2>Send us a Message</h2>
                         <p class="text-size-18">Have questions about our dogs, training programs, or breeding services?
                             We'd love to hear from you! Fill out the form below and we'll get back to you promptly.</p>
-                        <form id="contactpage" method="POST"
-                            action="https://html.designingmedia.com/pawsh/contact-form.php">
+                        <form id="contactpage" method="POST">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group mb-0">
@@ -180,11 +180,81 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group mb-0">
+                                        <input type="text" name="quiz_answer" class="form-control"
+                                            placeholder="What is 2 + 3?" required>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="btn_wrapper">
                                 <button type="submit" name="get_started" id="started" class="default-btn">Send
                                     Now</button>
                             </div>
                         </form>
+                        <div id="loading-spinner" style="display: none; text-align: center; margin-top: 10px;">
+                            <div class="spinner"></div>
+                        </div>
+                        <style>
+                            .spinner {
+                                margin: 0 auto;
+                                width: 40px;
+                                height: 40px;
+                                border: 4px solid #ccc;
+                                border-top-color: #007bff;
+
+                                border-radius: 50%;
+                                animation: spin 0.8s linear infinite;
+                            }
+
+                            @keyframes spin {
+                                to {
+                                    transform: rotate(360deg);
+                                }
+                            }
+                        </style>
+                        {{-- jQuery (if not already included) --}}
+                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+                        {{-- AJAX handling --}}
+                        <script>
+                            $('#contactpage').on('submit', function(e) {
+                                e.preventDefault();
+
+                                $('#loading-spinner').show(); // Show spinner
+                                $('.default-btn').prop('disabled', true); // Disable button
+
+                                // Clear any previous messages
+                                $('.form-message').remove();
+
+                                $.ajax({
+                                    url: "{{ route('contact.submit') }}", // Laravel route
+                                    method: "POST",
+                                    data: $(this).serialize(),
+                                    success: function(response) {
+                                        $('#loading-spinner').hide();
+                                        $('.default-btn').prop('disabled', false);
+                                        $('#contactpage').append('<p class="form-message" style="color:green;">' + response
+                                            .message + '</p>');
+                                        $('#contactpage')[0].reset();
+                                    },
+                                    error: function(xhr) {
+                                        $('#loading-spinner').hide();
+                                        $('.default-btn').prop('disabled', false);
+
+                                        let errorHtml = '<ul class="form-message" style="color:red;">';
+                                        $.each(xhr.responseJSON.errors, function(key, value) {
+                                            errorHtml += '<li>' + value[0] + '</li>';
+                                        });
+                                        errorHtml += '</ul>';
+                                        $('#contactpage').append(errorHtml);
+                                    }
+                                });
+                            });
+                        </script>
+
                         <figure class="contact_info_right_shape mb-0 position-absolute left_right_shape">
                             <img src="assets/images/contact_info_right_shape.png" alt="" class="img-fluid">
                         </figure>

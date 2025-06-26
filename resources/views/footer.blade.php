@@ -14,18 +14,63 @@
                             <h6>Stay Connected</h6>
                             <h2>Subscribe for Dog Care Tips & Updates from Gibmarnel</h2>
 
-                            <form method="POST">
+                            <form id="subscribeForm" method="POST">
+                                @csrf
                                 <div class="form-row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-lg-12">
                                         <input type="email" name="email" id="emailadd" class="form-control"
-                                            placeholder="Enter Your Email:">
+                                            placeholder="Enter Your Email:" required>
                                         <div class="input-group-append form-button">
-                                            <button class="default-btn" name="btnsubmit" id="submitbtn"
-                                                type="submit">Subscribe Now</button>
+                                            <button class="default-btn" id="submitbtn" type="submit">Subscribe
+                                                Now</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
+                            <div id="subscribe-spinner" style="display:none; text-align:center; margin-top:10px;">
+                                <div class="spinner"
+                                    style="width:30px; height:30px; border:4px solid #ccc; border-top-color:#007bff; border-radius:50%; animation:spin 0.8s linear infinite;">
+                                </div>
+                            </div>
+                            <div id="subscribe-message" style="margin-top:10px;"></div>
+
+                            <style>
+                                @keyframes spin {
+                                    to {
+                                        transform: rotate(360deg);
+                                    }
+                                }
+                            </style>
+
+                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                            <script>
+                                $('#subscribeForm').on('submit', function(e) {
+                                    e.preventDefault();
+                                    $('#subscribe-message').html('');
+                                    $('#subscribe-spinner').show();
+                                    $('#submitbtn').prop('disabled', true);
+
+                                    $.ajax({
+                                        url: "{{ route('subscribe') }}",
+                                        method: "POST",
+                                        data: $(this).serialize(),
+                                        success: function(res) {
+                                            $('#subscribe-spinner').hide();
+                                            $('#submitbtn').prop('disabled', false);
+                                            $('#subscribe-message').html('<span style="color:green;">' + res.message +
+                                                '</span>');
+                                            $('#subscribeForm')[0].reset();
+                                        },
+                                        error: function(xhr) {
+                                            $('#subscribe-spinner').hide();
+                                            $('#submitbtn').prop('disabled', false);
+                                            let errors = xhr.responseJSON.errors || {};
+                                            let msg = errors.email ? errors.email[0] : 'An error occurred.';
+                                            $('#subscribe-message').html('<span style="color:red;">' + msg + '</span>');
+                                        }
+                                    });
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
