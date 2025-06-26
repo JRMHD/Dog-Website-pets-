@@ -161,9 +161,28 @@
                                 <a href="{{ route('blog') }}">Blogs</a>
                             </li>
                             {{-- <li>
-                                <i class="fa-solid fa-angle-right"></i>
-                                <a href="{{ route('gallery') }}">Gallery</a>
-                            </li> --}}
+                <i class="fa-solid fa-angle-right"></i>
+                <a href="{{ route('gallery') }}">Gallery</a>
+            </li> --}}
+
+                            <!-- Authentication Links -->
+                            @auth
+                                <!-- User is logged in - Show Dashboard -->
+                                <li>
+                                    <i class="fa-solid fa-angle-right"></i>
+                                    <a href="{{ route('dashboard') }}">Dashboard</a>
+                                </li>
+                            @else
+                                <!-- User is not logged in - Show Login and Sign Up -->
+                                <li>
+                                    <i class="fa-solid fa-angle-right"></i>
+                                    <a href="{{ route('login') }}">Login</a>
+                                </li>
+                                <li>
+                                    <i class="fa-solid fa-angle-right"></i>
+                                    <a href="{{ route('register') }}">Sign Up</a>
+                                </li>
+                            @endauth
                         </ul>
                     </div>
                 </div>

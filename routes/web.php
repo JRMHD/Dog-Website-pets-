@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\Admin\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -51,12 +52,11 @@ Route::get('/blogs', function () {
 })->name('blog');
 
 // Profile routes (auth protected)
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
 // Auth routes
 require __DIR__ . '/auth.php';
 
@@ -65,3 +65,13 @@ Route::post('/consultation/store', [ConsultationController::class, 'store'])->na
 Route::get('/consultation/quiz-question', [ConsultationController::class, 'getQuizQuestion'])->name('consultation.quiz');
 Route::post('/contact/submit', [ContactController::class, 'store'])->name('contact.submit');
 Route::post('/subscribe', [SubscriptionController::class, 'store'])->name('subscribe');
+
+
+Route::middleware(['auth', 'verified', 'check.frozen', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    // User Management Routes
+    Route::resource('users', UserController::class);
+
+    // Additional user actions
+    Route::patch('users/{user}/freeze', [UserController::class, 'freeze'])->name('users.freeze');
+    Route::patch('users/{user}/unfreeze', [UserController::class, 'unfreeze'])->name('users.unfreeze');
+});
