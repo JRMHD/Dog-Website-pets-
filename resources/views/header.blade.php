@@ -5,7 +5,7 @@
                 <a class="navbar-brand" href="/">
                     <figure class="mb-0"
                         style="background-color: #f8f9fa; padding: 8px 12px; border-radius: 8px; display: inline-block;">
-                        <img src="{{ asset('assets/images/pawsh_logo.png') }}" alt="" class="img-fluid"
+                        <img src="{{ asset('/assets/images/pawsh_logo.png') }}" alt="" class="img-fluid"
                             style="height: 80px; width: auto;">
                     </figure>
                 </a>
@@ -49,10 +49,13 @@
                             </a>
                         </li>
 
-                        <li class="nav-item {{ Request::is('blogs') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('blog') }}"
-                                style="{{ Request::is('blogs') ? 'color: #4169E1; font-weight: bold;' : '' }}">Blogs</a>
+                        <li class="nav-item {{ Request::is('blog') || Request::is('blog/*') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('blog.index') }}"
+                                style="{{ Request::is('blog') || Request::is('blog/*') ? 'color: #4169E1; font-weight: bold;' : '' }}">
+                                Blogs
+                            </a>
                         </li>
+
                         <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}">
                             <a class="nav-link default-btn contact_us" href="{{ route('contact') }}"
                                 style="{{ Request::is('contact') ? 'background-color: #4169E1; border-color: #4169E1;' : '' }}">Contact

@@ -348,9 +348,9 @@
                         <figure class="mb-0 about_main_image">
                             <img src="assets/images/about_main_image.jpg" alt="" class="img-fluid">
                         </figure>
-                        <figure class="mb-0 about_left_image position-absolute">
+                        {{-- <figure class="mb-0 about_left_image position-absolute">
                             <img src="assets/images/about_left_image.jpg" alt="" class="img-fluid">
-                        </figure>
+                        </figure> --}}
                         <div class="about_left_box_wrapper">
                             <figure class="mb-0">
                                 <img src="assets/images/about_left_box_image.png" alt=""
@@ -397,6 +397,253 @@
             </figure>
         </div>
     </section>
+
+    <!-- Latest Blog Posts Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold text-primary">
+                    <svg width="32" height="32" fill="currentColor" viewBox="0 0 16 16" class="me-2">
+                        <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5z" />
+                    </svg>
+                    Latest From Our Blog
+                </h2>
+                <p class="lead text-muted">Expert tips and advice for your furry friends</p>
+            </div>
+
+            <div class="row">
+                @forelse($latestPosts as $post)
+                    <div class="col-md-4 mb-4">
+                        <a href="{{ route('blog.show', $post->slug) }}" class="text-decoration-none">
+                            <article class="card h-100 shadow-lg border-0 blog-card">
+                                @if ($post->images && count($post->images) > 0)
+                                    <img src="{{ asset('storage/' . $post->images[0]) }}" class="card-img-top"
+                                        alt="{{ $post->title }}" style="height: 240px; object-fit: cover;">
+                                @else
+                                    <div class="card-img-top bg-gradient-primary d-flex align-items-center justify-content-center"
+                                        style="height: 240px;">
+                                        <div class="text-center text-white">
+                                            <svg width="48" height="48" fill="currentColor"
+                                                viewBox="0 0 16 16">
+                                                <path
+                                                    d="M8 0C3.58 0 0 3.58 0 8c0 1.42.37 2.75 1.02 3.91L8 16l6.98-4.09C15.63 10.75 16 9.42 16 8c0-4.42-3.58-8-8-8z" />
+                                            </svg>
+                                            <p class="mt-2 fw-bold fs-6">{{ $post->category }}</p>
+                                        </div>
+                                    </div>
+                                @endif
+
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span
+                                            class="badge bg-gradient-{{ $post->category == 'Training' ? 'success' : ($post->category == 'Breeding' ? 'info' : ($post->category == 'Dog Walking' ? 'warning' : 'primary')) }} text-white">
+                                            {{ $post->category }}
+                                        </span>
+                                        <small class="text-muted fw-semibold">
+                                            <svg width="12" height="12" fill="currentColor"
+                                                viewBox="0 0 16 16" class="me-1">
+                                                <path
+                                                    d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+                                                <path
+                                                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
+                                            </svg>
+                                            {{ $post->published_at->diffForHumans() }}
+                                        </small>
+                                    </div>
+
+                                    <h5 class="card-title fw-bold text-dark mb-3">
+                                        {{ $post->title }}
+                                    </h5>
+
+                                    <p class="card-text text-muted mb-3">
+                                        {{ Str::limit($post->meta_description, 100) }}
+                                    </p>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-primary fw-semibold">
+                                            <svg width="14" height="14" fill="currentColor"
+                                                viewBox="0 0 16 16" class="me-1">
+                                                <path
+                                                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                                            </svg>
+                                            {{ $post->author }}
+                                        </small>
+                                        <span class="btn btn-primary btn-sm fw-semibold">
+                                            Read More
+                                            <svg width="12" height="12" fill="currentColor"
+                                                viewBox="0 0 16 16" class="ms-1">
+                                                <path fill-rule="evenodd"
+                                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
+                            </article>
+                        </a>
+                    </div>
+                @empty
+                    <div class="col-12">
+                        <div class="text-center py-5">
+                            <div class="bg-gradient-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-4"
+                                style="width: 120px; height: 120px;">
+                                <svg width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-primary mb-3 fw-bold">No Blog Posts Yet</h3>
+                            <p class="text-muted fs-5">Check back soon for expert dog care tips and advice!</p>
+                        </div>
+                    </div>
+                @endforelse
+            </div>
+
+            <!-- View All Button -->
+            @if ($latestPosts->count() > 0)
+                <div class="text-center mt-5">
+                    <a href="{{ route('blog.index') }}" class="btn btn-primary btn-lg fw-semibold">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16" class="me-2">
+                            <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5z" />
+                        </svg>
+                        View All Blog Posts
+                    </a>
+                </div>
+            @endif
+        </div>
+    </section>
+
+    <style>
+        /* Bright Modern Colors */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --info-gradient: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            --warning-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --danger-gradient: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+        }
+
+        .bg-gradient-primary {
+            background: var(--primary-gradient) !important;
+        }
+
+        .bg-gradient-success {
+            background: var(--success-gradient) !important;
+        }
+
+        .bg-gradient-info {
+            background: var(--info-gradient) !important;
+        }
+
+        .bg-gradient-warning {
+            background: var(--warning-gradient) !important;
+        }
+
+        .bg-gradient-danger {
+            background: var(--danger-gradient) !important;
+        }
+
+        .blog-card {
+            transition: all 0.3s ease;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .card-title {
+            transition: color 0.3s ease;
+        }
+
+        .blog-card:hover .card-title {
+            color: #667eea !important;
+        }
+
+        .badge {
+            font-size: 0.8rem;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .btn {
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img-top {
+            border-radius: 15px 15px 0 0;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+
+        /* Fun animations */
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .btn:hover {
+            animation: bounce 0.6s ease;
+        }
+
+        /* Enhanced shadows and gradients */
+        .shadow-lg {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .text-primary {
+            color: #667eea !important;
+        }
+
+        .text-success {
+            color: #11998e !important;
+        }
+
+        .text-info {
+            color: #3b82f6 !important;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            border: none;
+            color: white;
+        }
+
+        .btn-outline-primary {
+            border: 2px solid #667eea;
+            color: #667eea;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary-gradient);
+            border-color: #667eea;
+        }
+    </style>
+
     <!-- OUR STORE SECTION -->
     <section class="store_section position-relative">
         <div class="container">

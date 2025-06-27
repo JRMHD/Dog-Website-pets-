@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-lg-5 col-md-5 col-sm-12 col-12 order-md-1 order-2">
                         <figure class="newsletter_image mb-0 position-absolute">
-                            <img src="assets/images/newsletter_image.png" alt="" class="img-fluid">
+                            <img src="/assets/images/newsletter_image.png" alt="" class="img-fluid">
                         </figure>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12 col-12 order-md-2 order-1">
@@ -97,7 +97,7 @@
                         <a href="/">
                             <figure
                                 style="background-color: #f8f9fa; padding: 8px 12px; border-radius: 8px; display: inline-block;">
-                                <img src="assets/images/footer_logo.png" alt="" class="img-fluid"
+                                <img src="/assets/images/footer_logo.png" alt="" class="img-fluid"
                                     style="height: 80px; width: auto;">
                             </figure>
                         </a>
@@ -108,7 +108,7 @@
 
                         <div class="headphone_wrapper">
                             <figure class="mb-0">
-                                <img src="assets/images/footer_headphone.png" alt="" class="img-fluid">
+                                <img src="/assets/images/footer_headphone.png" alt="" class="img-fluid">
                             </figure>
                             <div class="headphone_content">
                                 <a href="tel:+254 743 136920" class="text-decoration-none d-block">+254 743 136920</a>
@@ -158,8 +158,9 @@
                             </li>
                             <li>
                                 <i class="fa-solid fa-angle-right"></i>
-                                <a href="{{ route('blog') }}">Blogs</a>
+                                <a href="{{ route('blog.index') }}">Blogs</a>
                             </li>
+
                             {{-- <li>
                 <i class="fa-solid fa-angle-right"></i>
                 <a href="{{ route('gallery') }}">Gallery</a>

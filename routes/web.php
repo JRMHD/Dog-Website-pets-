@@ -6,6 +6,9 @@ use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\BlogPostController;
+use App\Http\Controllers\BlogController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,9 +50,9 @@ Route::get('/checkout', function () {
     return view('checkout');
 })->name('checkout');
 
-Route::get('/blogs', function () {
-    return view('blog');
-})->name('blog');
+// Route::get('/blogs', function () {
+//     return view('blog');
+// })->name('blog');
 
 // Profile routes (auth protected)
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -74,4 +77,23 @@ Route::middleware(['auth', 'verified', 'check.frozen', 'admin'])->prefix('admin'
     // Additional user actions
     Route::patch('users/{user}/freeze', [UserController::class, 'freeze'])->name('users.freeze');
     Route::patch('users/{user}/unfreeze', [UserController::class, 'unfreeze'])->name('users.unfreeze');
+
+    // Blog Posts Management
+    Route::resource('blog-posts', BlogPostController::class);
+
+    Route::post('blog-posts/bulk-action', [BlogPostController::class, 'bulkAction'])->name('blog-posts.bulk-action');
+});
+
+
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/category/{category}', [BlogController::class, 'category'])->name('blog.category');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+
+Route::get('/', function () {
+    $latestPosts = App\Models\BlogPost::published()
+        ->orderBy('published_at', 'desc')
+        ->limit(6)
+        ->get();
+
+    return view('welcome', compact('latestPosts'));
 });
