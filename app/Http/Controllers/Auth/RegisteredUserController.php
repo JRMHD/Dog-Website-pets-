@@ -50,7 +50,7 @@ class RegisteredUserController extends Controller
 
         // Redirect based on user role - using direct attribute comparison
         if ($user->role === 'admin') {
-            return redirect(route('dashboard', absolute: false));
+            return redirect(route('admin.dashboard', absolute: false));
         } else {
             return redirect(route('profile.edit', absolute: false));
         }

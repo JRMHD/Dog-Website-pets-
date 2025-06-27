@@ -154,8 +154,9 @@
                             </li>
                             <li>
                                 <i class="fa-solid fa-angle-right"></i>
-                                <a href="{{ route('shop') }}">Our Shop</a>
+                                <a href="{{ route('shop.index') }}">Our Shop</a>
                             </li>
+
                             <li>
                                 <i class="fa-solid fa-angle-right"></i>
                                 <a href="{{ route('blog.index') }}">Blogs</a>
@@ -171,7 +172,7 @@
                                 <!-- User is logged in - Show Dashboard -->
                                 <li>
                                     <i class="fa-solid fa-angle-right"></i>
-                                    <a href="{{ route('dashboard') }}">Dashboard</a>
+                                    <a href="{{ route('admin.dashboard') }}">Dashboard</a>
                                 </li>
                             @else
                                 <!-- User is not logged in - Show Login and Sign Up -->

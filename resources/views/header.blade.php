@@ -33,11 +33,14 @@
                                 style="{{ Request::is('services') ? 'color: #4169E1; font-weight: bold;' : '' }}">Services</a>
                         </li>
                         <li class="nav-item {{ Request::is('shop') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('shop') }}"
-                                style="{{ Request::is('shop') ? 'color: #4169E1; font-weight: bold;' : '' }}">Shop</a>
+                            <a class="nav-link" href="{{ route('shop.index') }}"
+                                style="{{ Request::is('shop') ? 'color: #4169E1; font-weight: bold;' : '' }}">
+                                Shop
+                            </a>
                         </li>
 
-                        <li class="nav-item {{ Request::is('cart') ? 'active' : '' }}">
+
+                        {{-- <li class="nav-item {{ Request::is('cart') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('cart') }}"
                                 style="{{ Request::is('cart') ? 'color: #4169E1; font-weight: bold;' : '' }}">
                                 <svg width="20" height="20" fill="currentColor" class="me-1"
@@ -47,7 +50,7 @@
                                 </svg>
                                 Cart
                             </a>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item {{ Request::is('blog') || Request::is('blog/*') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('blog.index') }}"
@@ -67,7 +70,7 @@
                     <div class="auth_section ms-auto d-flex align-items-center">
                         @auth
                             <!-- User is logged in - Show Username as clickable text -->
-                            <a href="{{ route('dashboard') }}" class="nav-link d-flex align-items-center"
+                            <a href="{{ route('admin.dashboard') }}" class="nav-link d-flex align-items-center"
                                 style="color: #333; text-decoration: none;">
                                 <svg width="24" height="24" fill="currentColor" class="me-2" viewBox="0 0 16 16">
                                     <path

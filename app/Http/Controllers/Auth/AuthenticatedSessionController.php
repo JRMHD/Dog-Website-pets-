@@ -42,7 +42,7 @@ class AuthenticatedSessionController extends Controller
 
         // Redirect based on user role - using direct attribute comparison
         if ($user->role === 'admin') {
-            return redirect()->intended(route('dashboard', absolute: false));
+            return redirect()->intended(route('admin.dashboard', absolute: false));
         } else {
             return redirect()->intended(route('profile.edit', absolute: false));
         }

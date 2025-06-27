@@ -17,7 +17,25 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <!-- Alpine.js for interactions -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <!-- Trix Editor Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/2.0.0/trix.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -209,8 +227,8 @@
         <nav style="flex: 1; padding: 24px 0;">
             @if (auth()->user()->role === 'admin')
                 <!-- Admin Navigation Items -->
-                <a href="{{ route('dashboard') }}"
-                    class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                <a href="{{ route('admin.dashboard') }}"
+                    class="nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
@@ -219,6 +237,7 @@
                     </svg>
                     Dashboard
                 </a>
+
 
                 <a href="{{ url('/admin/users') }}"
                     class="nav-item {{ request()->is('admin/users*') ? 'active' : '' }}">
@@ -258,12 +277,23 @@
                     Create Blog Post
                 </a>
 
-                <a href="#" class="nav-item">
+                <a href="{{ url('/admin/listings') }}"
+                    class="nav-item {{ request()->is('admin/listings*') && !request()->is('admin/listings/create') ? 'active' : '' }}">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                        </path>
                     </svg>
-                    Product Listings
+                    Listings
+                </a>
+
+                <a href="{{ url('/admin/listings/create') }}"
+                    class="nav-item {{ request()->is('admin/listings/create') ? 'active' : '' }}">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                    Create Listing
                 </a>
 
                 <a href="{{ route('profile.edit') }}"
@@ -305,7 +335,8 @@
                 </div>
             </div>
             <div style="font-size: 12px; color: #6b7280; margin-bottom: 12px;">
-                <div>Role: <span style="font-weight: 500; color: #5260DE;">{{ auth()->user()->role ?? 'Admin' }}</span>
+                <div>Role: <span
+                        style="font-weight: 500; color: #5260DE;">{{ auth()->user()->role ?? 'Admin' }}</span>
                 </div>
                 <div>ID: <span style="font-weight: 500;">#{{ auth()->user()->id ?? '001' }}</span></div>
             </div>

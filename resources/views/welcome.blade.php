@@ -644,1956 +644,443 @@
         }
     </style>
 
-    <!-- OUR STORE SECTION -->
-    <section class="store_section position-relative">
+    <!-- Enhanced Latest Listings Section with Inline CSS -->
+    <section class="py-5 bg-light">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="store_content">
-                        <h6>Our Store</h6>
-                        <h2>Our Best Selling Products</h2>
-                    </div>
+            <!-- Modern Header -->
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #667eea; font-weight: 700;">
+                        <svg width="32" height="32" fill="currentColor" viewBox="0 0 16 16"
+                            style="margin-right: 0.5rem;">
+                            <path
+                                d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
+                            <path
+                                d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
+                        </svg>
+                        Latest Listings
+                    </h2>
+                    <p style="font-size: 1.25rem; color: #6c757d;">Discover our newest dogs and products available</p>
+                    <hr
+                        style="border: 0; height: 3px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 100px; margin: 1rem auto;">
                 </div>
             </div>
-            <div class="tabs-box tabs-options">
-                <ul class="nav nav-tabs">
-                    <li><a class="active" data-toggle="tab" href="#all">All Products</a></li>
-                    <li><a data-toggle="tab" href="#treats">Dog Treats</a></li>
-                    <li><a data-toggle="tab" href="#dog_food">Dog Food</a></li>
-                    <li><a data-toggle="tab" href="#deals">Special Deals</a></li>
-                    <li><a data-toggle="tab" href="#puppy_food">Puppy Food</a></li>
-                </ul>
-                <div class="tab-content" data-aos="fade-up">
-                    <div id="all" class="tab-pane fade in active show">
-                        <div class="row position-relative">
-                            <div class="owl-carousel owl-theme">
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image1.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
+
+            @if ($latestListings->count() > 0)
+                <!-- Enhanced Listings Grid -->
+                <div class="row">
+                    @foreach ($latestListings as $listing)
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <a href="{{ route('shop.show', $listing->slug) }}"
+                                style="text-decoration: none; color: inherit;">
+                                <article
+                                    style="
+                                background: white;
+                                border-radius: 15px;
+                                overflow: hidden;
+                                border-left: 5px solid #667eea;
+                                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+                                transition: all 0.3s ease;
+                                height: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                border: none;
+                            "
+                                    onmouseover="
+                                this.style.transform = 'translateY(-8px)';
+                                this.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.2)';
+                                this.style.borderLeftColor = '#764ba2';
+                                this.querySelector('.card-title-latest').style.color = '#667eea';
+                                this.querySelector('.card-img-latest').style.transform = 'scale(1.05)';
+                            "
+                                    onmouseout="
+                                this.style.transform = 'translateY(0)';
+                                this.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.15)';
+                                this.style.borderLeftColor = '#667eea';
+                                this.querySelector('.card-title-latest').style.color = '#212529';
+                                this.querySelector('.card-img-latest').style.transform = 'scale(1)';
+                            ">
+                                    <!-- Enhanced Image Section -->
+                                    <div
+                                        style="position: relative; overflow: hidden; height: 250px; border-radius: 15px 15px 0 0;">
+                                        @if ($listing->first_image)
+                                            <img src="{{ asset('storage/' . $listing->first_image) }}"
+                                                alt="{{ $listing->name }}" class="card-img-latest"
+                                                style="
+                                                height: 100%;
+                                                width: 100%;
+                                                object-fit: cover;
+                                                transition: transform 0.3s ease;
+                                             ">
+                                        @else
+                                            <div
+                                                style="
+                                            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            height: 100%;
+                                            color: white;
+                                        ">
+                                                <div style="text-align: center;">
+                                                    <svg width="48" height="48" fill="currentColor"
+                                                        viewBox="0 0 16 16">
+                                                        <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                                        <path
+                                                            d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
+                                                    </svg>
+                                                    <p style="margin-top: 0.5rem; font-weight: 700; margin-bottom: 0;">
+                                                        {{ $listing->type === 'dog' ? '🐕 Dog' : '📦 Product' }}</p>
+                                                </div>
+                                            </div>
+                                        @endif
+
+                                        <!-- Enhanced Type Badge -->
+                                        <span
+                                            style="
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        margin: 0.75rem;
+                                        background: {{ $listing->isDog() ? 'linear-gradient(135deg, #3b82f6 0%, #1e40af 100%)' : 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)' }};
+                                        color: white;
+                                        font-weight: 600;
+                                        padding: 0.5rem 0.75rem;
+                                        border-radius: 20px;
+                                        font-size: 0.8rem;
+                                        display: inline-flex;
+                                        align-items: center;
+                                    ">
+                                            <svg width="14" height="14" fill="currentColor"
+                                                viewBox="0 0 16 16" style="margin-right: 0.25rem;">
+                                                @if ($listing->isDog())
+                                                    <path
+                                                        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                                                @else
+                                                    <path
+                                                        d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z" />
+                                                @endif
+                                            </svg>
+                                            {{ $listing->isDog() ? 'Dog' : 'Product' }}
+                                        </span>
+
+                                        <!-- Enhanced Price Badge -->
+                                        <span
+                                            style="
+                                        position: absolute;
+                                        top: 0;
+                                        right: 0;
+                                        margin: 0.75rem;
+                                        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                                        color: #212529;
+                                        font-weight: 700;
+                                        padding: 0.5rem 0.75rem;
+                                        border-radius: 20px;
+                                        font-size: 0.9rem;
+                                        backdrop-filter: blur(10px);
+                                        border: 1px solid rgba(255, 255, 255, 0.2);
+                                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                                    ">
+                                            KES {{ number_format($listing->price, 0) }}
+                                        </span>
+                                    </div>
+
+                                    <!-- Enhanced Card Body -->
+                                    <div style="display: flex; flex-direction: column; flex-grow: 1; padding: 1.5rem;">
+                                        <h5 class="card-title-latest"
+                                            style="font-weight: 700; color: #212529; margin-bottom: 1rem; transition: color 0.3s ease;">
+                                            {{ $listing->name }}</h5>
+
+                                        <p style="color: #6c757d; margin-bottom: 1rem; flex-grow: 1;">
+                                            {{ Str::limit($listing->description, 100) }}
+                                        </p>
+
+                                        <!-- Enhanced Listing Details -->
+                                        <div style="margin-bottom: 1rem;">
+                                            @if ($listing->isDog())
+                                                <div style="display: flex; gap: 0.5rem;">
+                                                    <div style="flex: 1; text-align: center;">
+                                                        <div style="
+                                                        padding: 0.5rem;
+                                                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                                        color: white;
+                                                        border-radius: 0.75rem;
+                                                        transition: transform 0.2s ease;
+                                                    "
+                                                            onmouseover="this.style.transform = 'scale(1.05)'"
+                                                            onmouseout="this.style.transform = 'scale(1)'">
+                                                            <small
+                                                                style="display: block; font-weight: 600;">Breed</small>
+                                                            <strong
+                                                                style="font-size: 0.875rem;">{{ Str::limit($listing->breed, 10) }}</strong>
+                                                        </div>
+                                                    </div>
+                                                    <div style="flex: 1; text-align: center;">
+                                                        <div style="
+                                                        padding: 0.5rem;
+                                                        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+                                                        color: white;
+                                                        border-radius: 0.75rem;
+                                                        transition: transform 0.2s ease;
+                                                    "
+                                                            onmouseover="this.style.transform = 'scale(1.05)'"
+                                                            onmouseout="this.style.transform = 'scale(1)'">
+                                                            <small
+                                                                style="display: block; font-weight: 600;">Age</small>
+                                                            <strong
+                                                                style="font-size: 0.875rem;">{{ $listing->age_display }}</strong>
+                                                        </div>
+                                                    </div>
+                                                    <div style="flex: 1; text-align: center;">
+                                                        <div style="
+                                                        padding: 0.5rem;
+                                                        background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+                                                        color: white;
+                                                        border-radius: 0.75rem;
+                                                        transition: transform 0.2s ease;
+                                                    "
+                                                            onmouseover="this.style.transform = 'scale(1.05)'"
+                                                            onmouseout="this.style.transform = 'scale(1)'">
+                                                            <small
+                                                                style="display: block; font-weight: 600;">Size</small>
+                                                            <strong
+                                                                style="font-size: 0.875rem;">{{ $listing->size }}</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @else
+                                                <div style="display: flex; gap: 0.5rem;">
+                                                    <div style="flex: 1; text-align: center;">
+                                                        <div style="
+                                                        padding: 0.5rem;
+                                                        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+                                                        color: white;
+                                                        border-radius: 0.75rem;
+                                                        transition: transform 0.2s ease;
+                                                    "
+                                                            onmouseover="this.style.transform = 'scale(1.05)'"
+                                                            onmouseout="this.style.transform = 'scale(1)'">
+                                                            <small
+                                                                style="display: block; font-weight: 600;">Category</small>
+                                                            <strong
+                                                                style="font-size: 0.875rem;">{{ Str::limit($listing->category, 12) }}</strong>
+                                                        </div>
+                                                    </div>
+                                                    <div style="flex: 1; text-align: center;">
+                                                        <div style="
+                                                        padding: 0.5rem;
+                                                        background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+                                                        color: white;
+                                                        border-radius: 0.75rem;
+                                                        transition: transform 0.2s ease;
+                                                    "
+                                                            onmouseover="this.style.transform = 'scale(1.05)'"
+                                                            onmouseout="this.style.transform = 'scale(1)'">
+                                                            <small
+                                                                style="display: block; font-weight: 600;">Stock</small>
+                                                            <strong
+                                                                style="font-size: 0.875rem;">{{ $listing->stock_quantity }}</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
                                         </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina cat chow defense plus</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
+
+                                        <!-- Price Display in Body -->
+                                        <div
+                                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                            <div>
+                                                <span
+                                                    style="font-size: 1.25rem; color: #11998e; font-weight: 700; margin-bottom: 0; display: flex; align-items: center;">
+                                                    <svg width="16" height="16" fill="currentColor"
+                                                        viewBox="0 0 16 16" style="margin-right: 0.25rem;">
+                                                        <path
+                                                            d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z" />
+                                                    </svg>
+                                                    KES {{ number_format($listing->price, 2) }}
+                                                </span>
                                             </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">60</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
+                                        </div>
+
+                                        <!-- Enhanced Location -->
+                                        @if ($listing->location)
+                                            <div style="margin-bottom: 1rem;">
+                                                <small
+                                                    style="color: #6c757d; font-weight: 600; display: flex; align-items: center;">
+                                                    <svg width="14" height="14" fill="currentColor"
+                                                        viewBox="0 0 16 16" style="margin-right: 0.25rem;">
+                                                        <path
+                                                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                                                    </svg>
+                                                    {{ $listing->location }}
+                                                </small>
                                             </div>
+                                        @endif
+
+                                        <!-- Enhanced View Details Button -->
+                                        <div style="margin-top: auto;">
+                                            <span
+                                                style="
+                                            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                            border: none;
+                                            color: white;
+                                            width: 100%;
+                                            font-weight: 600;
+                                            border-radius: 25px;
+                                            transition: all 0.3s ease;
+                                            padding: 0.75rem 1rem;
+                                            text-align: center;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                        "
+                                                onmouseover="
+                                            this.style.transform = 'translateY(-2px)';
+                                            this.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.2)';
+                                            this.style.animation = 'bounce 0.6s ease';
+                                        "
+                                                onmouseout="
+                                            this.style.transform = 'translateY(0)';
+                                            this.style.boxShadow = 'none';
+                                            this.style.animation = 'none';
+                                        ">
+                                                <svg width="16" height="16" fill="currentColor"
+                                                    viewBox="0 0 16 16" style="margin-right: 0.5rem;">
+                                                    <path
+                                                        d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                                    <path
+                                                        d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                                </svg>
+                                                View Details
+                                            </span>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image2.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina beneful perros</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">80</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image3.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina pro plan urinary</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">90</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image4.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina of the lata hills</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">120</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image1.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina cat chow defense plus</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">60</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image2.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina beneful perros</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">80</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image3.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina pro plan urinary</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">90</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image4.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina of the lata hills</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">120</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image1.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina cat chow defense plus</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">60</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image2.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina beneful perros</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">80</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image3.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina pro plan urinary</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">90</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image4.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina of the lata hills</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">120</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <figure class="store_box_right_shape mb-0 position-absolute left_right_shape">
-                                <img src="assets/images/our_store_box_right_shape.png" alt=""
-                                    class="img-fluid">
-                            </figure>
+                                </article>
+                            </a>
                         </div>
+                    @endforeach
+                </div>
+
+                <!-- Enhanced View All Button -->
+                <div class="row mt-5">
+                    <div class="col-12 text-center">
+                        <a href="{{ route('shop.index') }}"
+                            style="
+                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        border: none;
+                        color: white;
+                        font-weight: 600;
+                        padding: 0.75rem 2rem;
+                        border-radius: 25px;
+                        transition: all 0.3s ease;
+                        text-decoration: none;
+                        display: inline-flex;
+                        align-items: center;
+                        font-size: 1.125rem;
+                    "
+                            onmouseover="
+                        this.style.transform = 'translateY(-2px)';
+                        this.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.2)';
+                    "
+                            onmouseout="
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = 'none';
+                    ">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16"
+                                style="margin-right: 0.5rem;">
+                                <path
+                                    d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                            </svg>
+                            View All Listings
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"
+                                style="margin-left: 0.5rem;">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                            </svg>
+                        </a>
                     </div>
-                    <div id="treats" class="tab-pane fade">
-                        <div class="row position-relative">
-                            <div class="owl-carousel owl-theme">
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image1.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina cat chow defense plus</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">60</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image2.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina beneful perros</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">80</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image1.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina cat chow defense plus</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">60</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image2.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina beneful perros</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">80</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image1.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina cat chow defense plus</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">60</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image2.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina beneful perros</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">80</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image1.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina cat chow defense plus</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">60</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image2.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina beneful perros</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">80</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image1.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina cat chow defense plus</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">60</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image2.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina beneful perros</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">80</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                </div>
+            @else
+                <!-- Enhanced No Listings Available -->
+                <div class="row">
+                    <div class="col-12">
+                        <div style="text-align: center; padding: 3rem 0;">
+                            <div
+                                style="
+                            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                            color: white;
+                            border-radius: 50%;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin-bottom: 1.5rem;
+                            width: 120px;
+                            height: 120px;
+                        ">
+                                <svg width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+                                    <path
+                                        d="M7.068.727c.243-.97 1.62-.97 1.864 0l.071.286a.96.96 0 0 0 1.622.434l.205-.211c.695-.719 1.888-.03 1.613.931l-.08.284a.96.96 0 0 0 1.187 1.187l.283-.081c.96-.275 1.65.918.931 1.613l-.211.205a.96.96 0 0 0 .434 1.622l.286.071c.97.243.97 1.62 0 1.864l-.286.071a.96.96 0 0 0-.434 1.622l.211.205c.719.695.03 1.888-.931 1.613l-.284-.08a.96.96 0 0 0-1.187 1.187l.081.283c.275.96-.918 1.65-1.613.931l-.205-.211a.96.96 0 0 0-1.622.434L8.932 15.273c-.243.97-1.62.97-1.864 0l-.071-.286a.96.96 0 0 0-1.622-.434l-.205.211c-.695.719-1.888.03-1.613-.931l.08-.284a.96.96 0 0 0-1.186-1.187l-.284.081c-.96.275-1.65-.918-.931-1.613l.211-.205a.96.96 0 0 0-.434-1.622L.727 8.932C-.243 8.689-.243 7.312.727 7.068l.286-.071a.96.96 0 0 0 .434-1.622L1.236 5.17c-.719-.695-.03-1.888.931-1.613l.284.08a.96.96 0 0 0 1.187-1.186l-.081-.284c-.275-.96.918-1.65 1.613-.931l.205.211a.96.96 0 0 0 1.622-.434L7.068.727zM8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492z" />
+                                </svg>
                             </div>
-                            <figure class="store_box_right_shape mb-0 position-absolute left_right_shape">
-                                <img src="assets/images/our_store_box_right_shape.png" alt=""
-                                    class="img-fluid">
-                            </figure>
-                        </div>
-                    </div>
-                    <div id="dog_food" class="tab-pane fade">
-                        <div class="row position-relative">
-                            <div class="owl-carousel owl-theme">
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image3.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina pro plan urinary</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">90</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image4.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina of the lata hills</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">120</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image3.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina pro plan urinary</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">90</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image4.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina of the lata hills</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">120</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image3.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina pro plan urinary</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">90</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image4.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina of the lata hills</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">120</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image3.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina pro plan urinary</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">90</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image4.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina of the lata hills</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">120</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image3.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina pro plan urinary</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">90</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image4.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina of the lata hills</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">120</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <h3 style="color: #667eea; margin-bottom: 1rem; font-weight: 700;">No Listings Available
+                                Yet</h3>
+                            <p style="color: #6c757d; font-size: 1.25rem;">Check back soon for new dogs and products!
+                            </p>
+                            <div style="margin-top: 1.5rem;">
+                                <a href="{{ route('shop.index') }}"
+                                    style="
+                                border: 2px solid #667eea;
+                                color: #667eea;
+                                background: transparent;
+                                font-weight: 600;
+                                margin-right: 1rem;
+                                padding: 0.75rem 2rem;
+                                border-radius: 25px;
+                                transition: all 0.3s ease;
+                                text-decoration: none;
+                                display: inline-block;
+                                font-size: 1.125rem;
+                            "
+                                    onmouseover="
+                                this.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                                this.style.borderColor = '#667eea';
+                                this.style.color = 'white';
+                            "
+                                    onmouseout="
+                                this.style.background = 'transparent';
+                                this.style.borderColor = '#667eea';
+                                this.style.color = '#667eea';
+                            ">
+                                    Browse Shop
+                                </a>
+                                <a href="#"
+                                    style="
+                                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                border: none;
+                                color: white;
+                                font-weight: 600;
+                                padding: 0.75rem 2rem;
+                                border-radius: 25px;
+                                transition: all 0.3s ease;
+                                text-decoration: none;
+                                display: inline-block;
+                                font-size: 1.125rem;
+                            "
+                                    onmouseover="
+                                this.style.transform = 'translateY(-2px)';
+                                this.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.2)';
+                            "
+                                    onmouseout="
+                                this.style.transform = 'translateY(0)';
+                                this.style.boxShadow = 'none';
+                            ">
+                                    Get Notified
+                                </a>
                             </div>
-                            <figure class="store_box_right_shape mb-0 position-absolute left_right_shape">
-                                <img src="assets/images/our_store_box_right_shape.png" alt=""
-                                    class="img-fluid">
-                            </figure>
-                        </div>
-                    </div>
-                    <div id="deals" class="tab-pane fade">
-                        <div class="row position-relative">
-                            <div class="owl-carousel owl-theme">
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image2.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina beneful perros</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">80</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image3.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina pro plan urinary</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">90</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image2.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina beneful perros</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">80</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image3.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina pro plan urinary</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">90</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image2.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina beneful perros</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">80</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image3.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina pro plan urinary</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">90</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image2.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina beneful perros</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">80</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image3.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina pro plan urinary</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">90</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image2.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina beneful perros</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">80</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image3.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina pro plan urinary</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">90</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <figure class="store_box_right_shape mb-0 position-absolute left_right_shape">
-                                <img src="assets/images/our_store_box_right_shape.png" alt=""
-                                    class="img-fluid">
-                            </figure>
-                        </div>
-                    </div>
-                    <div id="puppy_food" class="tab-pane fade">
-                        <div class="row position-relative">
-                            <div class="owl-carousel owl-theme">
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image1.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina cat chow defense plus</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">60</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image4.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina of the lata hills</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">120</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image1.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina cat chow defense plus</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">60</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image4.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina of the lata hills</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">120</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image1.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina cat chow defense plus</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">60</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image4.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina of the lata hills</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">120</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image1.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina cat chow defense plus</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">60</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image4.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina of the lata hills</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">120</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image1.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina cat chow defense plus</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">60</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="store_box">
-                                        <div class="store_image_box">
-                                            <figure class="mb-0">
-                                                <img src="assets/images/our_store_image4.png" alt=""
-                                                    class="img-fluid">
-                                            </figure>
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                        <div class="store_box_content">
-                                            <div class="text_rate_wrapper">
-                                                <div class="text_wrapper">
-                                                    <h5>Purina of the lata hills</h5>
-                                                    <p class="text-size-16">Adultos</p>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <span>4.9/5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price_cart_wrapper">
-                                                <div class="price_wrapper">
-                                                    <span class="dollar">$</span>
-                                                    <span class="counter">120</span>
-                                                    <span>.00</span>
-                                                </div>
-                                                <a href="cart.html">
-                                                    <figure class="cart mb-0">
-                                                        <img src="assets/images/cart.png" alt=""
-                                                            class="img-fluid">
-                                                    </figure>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <figure class="store_box_right_shape mb-0 position-absolute left_right_shape">
-                                <img src="assets/images/our_store_box_right_shape.png" alt=""
-                                    class="img-fluid">
-                            </figure>
                         </div>
                     </div>
                 </div>
-            </div>
-            <figure class="store_big_foot_shape mb-0 position-absolute top_bottom_shape">
-                <img src="assets/images/our_store_big_foot_shape.png" alt="" class="img-fluid">
-            </figure>
-            <figure class="store_small_foot_shape mb-0 position-absolute top_bottom_shape">
-                <img src="assets/images/our_store_small_foot_shape.png" alt="" class="img-fluid">
-            </figure>
+            @endif
         </div>
     </section>
     <!-- CONSULTATION SECTION -->
@@ -2625,8 +1112,7 @@
                                 <h3>Sarah Mitchell</h3>
                                 <p class="text-size-18">Dog Training Client</p>
                                 <figure class="testimonials_quote mb-0 position-absolute">
-                                    <img src="assets/images/testimonials_quote.png" alt=""
-                                        class="img-fluid">
+                                    <img src="assets/images/testimonials_quote.png" alt="" class="img-fluid">
                                 </figure>
                             </div>
                         </div>
@@ -2645,8 +1131,7 @@
                                 <h3>Grace Wanjiku</h3>
                                 <p class="text-size-18">Dog Walking Client</p>
                                 <figure class="testimonials_quote mb-0 position-absolute">
-                                    <img src="assets/images/testimonials_quote.png" alt=""
-                                        class="img-fluid">
+                                    <img src="assets/images/testimonials_quote.png" alt="" class="img-fluid">
                                 </figure>
                             </div>
                         </div>
@@ -2665,8 +1150,7 @@
                                 <h3>Jennifer Rodriguez</h3>
                                 <p class="text-size-18">Puppy Purchase Client</p>
                                 <figure class="testimonials_quote mb-0 position-absolute">
-                                    <img src="assets/images/testimonials_quote.png" alt=""
-                                        class="img-fluid">
+                                    <img src="assets/images/testimonials_quote.png" alt="" class="img-fluid">
                                 </figure>
                             </div>
                         </div>

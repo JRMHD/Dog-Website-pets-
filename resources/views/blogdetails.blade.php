@@ -6,12 +6,11 @@
     <title>{{ $post->title }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta name="description"
-        content="Read expert dog care tips, training advice, and breeding insights from Gibmarnel Kenya. Learn about puppy care, dog behavior, training techniques, and pet health. Contact +254 743 136920">
-    <meta name="keywords"
-        content="dog care tips Kenya, puppy training advice, dog blog, pet care articles, Gibmarnel blog">
 
-    <link rel="canonical" href="https://gibmarnel.com/blog">
+    <meta name="description" content="{{ $post->meta_description ?? Str::limit(strip_tags($post->description), 160) }}">
+    <meta name="keywords" content="{{ is_array($post->tags) ? implode(', ', $post->tags) : $post->tags }}">
+
+    <link rel="canonical" href="{{ url()->current() }}">
     <link rel="icon" type="image/png" href="/assets/images/favicon.png">
 
     <meta name="msapplication-TileColor" content="#ffffff">
@@ -38,6 +37,7 @@
     <link href="/assets/css/style.css" rel="stylesheet" type="text/css">
     <link href="/assets/css/mediaqueries.css" rel="stylesheet" type="text/css">
 </head>
+
 
 
 <body>

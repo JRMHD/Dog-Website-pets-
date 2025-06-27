@@ -8,15 +8,18 @@ use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BlogPostController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\Admin\ListingController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\Admin\DashboardController;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::get('/about', function () {
@@ -38,9 +41,9 @@ Route::get('/packages', function () {
 Route::get('/services', function () {
     return view('services');
 })->name('services');
-Route::get('/shop', function () {
-    return view('shop');
-})->name('shop');
+// Route::get('/shop', function () {
+//     return view('shop');
+// })->name('shop');
 
 Route::get('/cart', function () {
     return view('cart');
@@ -82,6 +85,13 @@ Route::middleware(['auth', 'verified', 'check.frozen', 'admin'])->prefix('admin'
     Route::resource('blog-posts', BlogPostController::class);
 
     Route::post('blog-posts/bulk-action', [BlogPostController::class, 'bulkAction'])->name('blog-posts.bulk-action');
+
+
+    // Listings Management (Dogs & Products)
+    Route::resource('listings', ListingController::class);
+    Route::post('listings/bulk-action', [ListingController::class, 'bulkAction'])->name('listings.bulk-action');
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
 
@@ -95,5 +105,15 @@ Route::get('/', function () {
         ->limit(6)
         ->get();
 
-    return view('welcome', compact('latestPosts'));
+    // Get 6 latest active listings
+    $latestListings = App\Models\Listing::active()
+        ->latest()
+        ->limit(6)
+        ->get();
+
+    return view('welcome', compact('latestPosts', 'latestListings'));
 });
+
+
+Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
+Route::get('/shop/{slug}', [ShopController::class, 'show'])->name('shop.show');
