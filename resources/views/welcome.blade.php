@@ -206,10 +206,10 @@
                                 <img src="assets/images/services_image1.png" alt=""
                                     class="img-fluid hover-effect">
                             </figure>
-                            <h3>Quality Dog Breeding</h3>
-                            <p class="text-size-18">Professional breeding services with healthy, well-socialized
-                                puppies from champion bloodlines. We ensure proper health screening and documentation...
-                            </p>
+                            <h3>Premium Dog Meals</h3>
+                            <p class="text-size-18">Nutritious, balanced meal plans tailored to your dog's age, size,
+                                and dietary needs. We offer fresh, organic ingredients and customized meal delivery
+                                services...</p>
                             <div class="btn_wrapper">
                                 <a class="text-decoration-none" href="/services">Read more<i
                                         class="fa-solid fa-arrow-right"></i></a>
@@ -222,10 +222,10 @@
                                 <img src="assets/images/services_image2.png" alt=""
                                     class="img-fluid hover-effect">
                             </figure>
-                            <h3>Professional Dog Walking</h3>
-                            <p class="text-size-18">Reliable and caring dog walking services for busy pet owners. We
-                                provide daily exercise, socialization, and individual attention for your furry friend...
-                            </p>
+                            <h3>Professional Dog Grooming</h3>
+                            <p class="text-size-18">Complete grooming services including bathing, brushing, nail
+                                trimming, and styling. Our experienced groomers ensure your dog looks and feels their
+                                best...</p>
                             <div class="btn_wrapper">
                                 <a class="text-decoration-none" href="/services">Read more<i
                                         class="fa-solid fa-arrow-right"></i></a>
@@ -234,37 +234,6 @@
                     </div>
                     <div class="item">
                         <div class="services_box box3">
-                            <figure>
-                                <img src="assets/images/services_image3.png" alt=""
-                                    class="img-fluid hover-effect">
-                            </figure>
-                            <h3>Breeding Consultation</h3>
-                            <p class="text-size-18">Expert guidance for responsible breeding practices. We provide
-                                advice on breeding selection, health testing, and proper care throughout the breeding
-                                process...</p>
-                            <div class="btn_wrapper">
-                                <a class="text-decoration-none" href="/services">Read more<i
-                                        class="fa-solid fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="services_box box4">
-                            <figure>
-                                <img src="assets/images/services_image4.png" alt=""
-                                    class="img-fluid hover-effect">
-                            </figure>
-                            <h3>Dog Training - All Ages</h3>
-                            <p class="text-size-18">Comprehensive training programs for puppies and adult dogs. From
-                                basic obedience to advanced behavioral modification, we help build strong bonds...</p>
-                            <div class="btn_wrapper">
-                                <a class="text-decoration-none" href="/services">Read more<i
-                                        class="fa-solid fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="services_box box1">
                             <figure>
                                 <img src="assets/images/services_image1.png" alt=""
                                     class="img-fluid hover-effect">
@@ -280,7 +249,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="services_box box2">
+                        <div class="services_box box4">
                             <figure>
                                 <img src="assets/images/services_image2.png" alt=""
                                     class="img-fluid hover-effect">
@@ -296,7 +265,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="services_box box3">
+                        <div class="services_box box1">
                             <figure>
                                 <img src="assets/images/services_image3.png" alt=""
                                     class="img-fluid hover-effect">
@@ -312,7 +281,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="services_box box4">
+                        <div class="services_box box2">
                             <figure>
                                 <img src="assets/images/services_image4.png" alt=""
                                     class="img-fluid hover-effect">
@@ -320,6 +289,38 @@
                             <h3>Dog Training - All Ages</h3>
                             <p class="text-size-18">Comprehensive training programs for puppies and adult dogs. From
                                 basic obedience to advanced behavioral modification, we help build strong bonds...</p>
+                            <div class="btn_wrapper">
+                                <a class="text-decoration-none" href="/services">Read more<i
+                                        class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="services_box box3">
+                            <figure>
+                                <img src="assets/images/services_image3.png" alt=""
+                                    class="img-fluid hover-effect">
+                            </figure>
+                            <h3>Premium Dog Meals</h3>
+                            <p class="text-size-18">Nutritious, balanced meal plans tailored to your dog's age, size,
+                                and dietary needs. We offer fresh, organic ingredients and customized meal delivery
+                                services...</p>
+                            <div class="btn_wrapper">
+                                <a class="text-decoration-none" href="/services">Read more<i
+                                        class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="services_box box4">
+                            <figure>
+                                <img src="assets/images/services_image4.png" alt=""
+                                    class="img-fluid hover-effect">
+                            </figure>
+                            <h3>Professional Dog Grooming</h3>
+                            <p class="text-size-18">Complete grooming services including bathing, brushing, nail
+                                trimming, and styling. Our experienced groomers ensure your dog looks and feels their
+                                best...</p>
                             <div class="btn_wrapper">
                                 <a class="text-decoration-none" href="/services">Read more<i
                                         class="fa-solid fa-arrow-right"></i></a>

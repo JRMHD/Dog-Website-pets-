@@ -149,9 +149,10 @@
                                 <img src="assets/images/services_image1.png" alt=""
                                     class="img-fluid hover-effect">
                             </figure>
-                            <h3>Puppy & Dog Sales</h3>
-                            <p class="text-size-18">Quality puppies and dogs of all ages available. Find your perfect
-                                companion from our carefully selected breeds...</p>
+                            <h3>Premium Dog Meals</h3>
+                            <p class="text-size-18">Nutritious, balanced meal plans tailored to your dog's age, size,
+                                and dietary needs. We offer fresh, organic ingredients and customized meal delivery
+                                services...</p>
                             <div class="btn_wrapper">
                                 <a class="text-decoration-none" href="/about">Read more<i
                                         class="fa-solid fa-arrow-right"></i></a>
@@ -164,9 +165,10 @@
                                 <img src="assets/images/services_image2.png" alt=""
                                     class="img-fluid hover-effect">
                             </figure>
-                            <h3>Dog Training</h3>
-                            <p class="text-size-18">Professional training services for puppies and adult dogs. Basic
-                                obedience to advanced behavioral training...</p>
+                            <h3>Professional Dog Grooming</h3>
+                            <p class="text-size-18">Complete grooming services including bathing, brushing, nail
+                                trimming, and styling. Our experienced groomers ensure your dog looks and feels their
+                                best...</p>
                             <div class="btn_wrapper">
                                 <a class="text-decoration-none" href="/about">Read more<i
                                         class="fa-solid fa-arrow-right"></i></a>
@@ -179,9 +181,9 @@
                                 <img src="assets/images/services_image3.png" alt=""
                                     class="img-fluid hover-effect">
                             </figure>
-                            <h3>Breeding Services</h3>
-                            <p class="text-size-18">Professional breeding services with health-tested, pedigreed dogs.
-                                Responsible breeding practices for quality offspring...</p>
+                            <h3>Puppy & Dog Sales</h3>
+                            <p class="text-size-18">Quality puppies and dogs of all ages available. Find your perfect
+                                companion from our carefully selected breeds...</p>
                             <div class="btn_wrapper">
                                 <a class="text-decoration-none" href="/about">Read more<i
                                         class="fa-solid fa-arrow-right"></i></a>
@@ -194,9 +196,9 @@
                                 <img src="assets/images/services_image4.png" alt=""
                                     class="img-fluid hover-effect">
                             </figure>
-                            <h3>Dog Walking</h3>
-                            <p class="text-size-18">Reliable dog walking services to keep your furry friend active and
-                                happy. Daily walks and exercise sessions...</p>
+                            <h3>Dog Training</h3>
+                            <p class="text-size-18">Professional training services for puppies and adult dogs. Basic
+                                obedience to advanced behavioral training...</p>
                             <div class="btn_wrapper">
                                 <a class="text-decoration-none" href="/about">Read more<i
                                         class="fa-solid fa-arrow-right"></i></a>
@@ -209,9 +211,9 @@
                                 <img src="assets/images/services_image1.png" alt=""
                                     class="img-fluid hover-effect">
                             </figure>
-                            <h3>Puppy & Dog Sales</h3>
-                            <p class="text-size-18">Quality puppies and dogs of all ages available. Find your perfect
-                                companion from our carefully selected breeds...</p>
+                            <h3>Breeding Services</h3>
+                            <p class="text-size-18">Professional breeding services with health-tested, pedigreed dogs.
+                                Responsible breeding practices for quality offspring...</p>
                             <div class="btn_wrapper">
                                 <a class="text-decoration-none" href="/about">Read more<i
                                         class="fa-solid fa-arrow-right"></i></a>
@@ -224,9 +226,9 @@
                                 <img src="assets/images/services_image2.png" alt=""
                                     class="img-fluid hover-effect">
                             </figure>
-                            <h3>Dog Training</h3>
-                            <p class="text-size-18">Professional training services for puppies and adult dogs. Basic
-                                obedience to advanced behavioral training...</p>
+                            <h3>Dog Walking</h3>
+                            <p class="text-size-18">Reliable dog walking services to keep your furry friend active and
+                                happy. Daily walks and exercise sessions...</p>
                             <div class="btn_wrapper">
                                 <a class="text-decoration-none" href="/about">Read more<i
                                         class="fa-solid fa-arrow-right"></i></a>
@@ -239,9 +241,10 @@
                                 <img src="assets/images/services_image3.png" alt=""
                                     class="img-fluid hover-effect">
                             </figure>
-                            <h3>Breeding Services</h3>
-                            <p class="text-size-18">Professional breeding services with health-tested, pedigreed dogs.
-                                Responsible breeding practices for quality offspring...</p>
+                            <h3>Premium Dog Meals</h3>
+                            <p class="text-size-18">Nutritious, balanced meal plans tailored to your dog's age, size,
+                                and dietary needs. We offer fresh, organic ingredients and customized meal delivery
+                                services...</p>
                             <div class="btn_wrapper">
                                 <a class="text-decoration-none" href="/about">Read more<i
                                         class="fa-solid fa-arrow-right"></i></a>
@@ -254,9 +257,10 @@
                                 <img src="assets/images/services_image4.png" alt=""
                                     class="img-fluid hover-effect">
                             </figure>
-                            <h3>Dog Walking</h3>
-                            <p class="text-size-18">Reliable dog walking services to keep your furry friend active and
-                                happy. Daily walks and exercise sessions...</p>
+                            <h3>Professional Dog Grooming</h3>
+                            <p class="text-size-18">Complete grooming services including bathing, brushing, nail
+                                trimming, and styling. Our experienced groomers ensure your dog looks and feels their
+                                best...</p>
                             <div class="btn_wrapper">
                                 <a class="text-decoration-none" href="/about">Read more<i
                                         class="fa-solid fa-arrow-right"></i></a>
